@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+
+{% block title %}This title{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Главная страница</h1>
+        <p>Просто текст</p>
+        <button class="btn btn-warning">На страницу Про нас</button>
+        {% for el in obj %}
+             <p>{{ el }}</p>
+        {% endfor %}
+    </div>
+{% endblock %}

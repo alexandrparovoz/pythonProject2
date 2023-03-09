@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+
+{% block title %}News main{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Главные новости</h1>
+        <p>Описываем всякие новостные гадости, присходящие  мире</p>
+        <button class="btn btn-warning">Горячие новости</button>
+        {% if news %}
+        {% for el in news %}
+            <div class="alert alert-warning">
+                <h3>{{ el.title }}</h3>
+                <p>{{ el.anons }}</p>
+            </div>
+        {% endfor %}
+        {% else %}
+        <P>На данный момент нет новостей!</P>
+        {% endif %}
+    </div>
+{% endblock %}
