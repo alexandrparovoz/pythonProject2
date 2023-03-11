@@ -1,18 +1,23 @@
 from django.shortcuts import render, redirect
 from .models import Article
 from .forms import ArticleForm
-from django.views.generic import DetailView, UpdateView
+from django.views.generic import DetailView, UpdateView, DeleteView
 
-class NewDetailView(UpdateView):
+class NewUpdateView(UpdateView):
     model = Article
     template_name = 'news/create.html'
 
     form_class = ArticleForm
 
-class NewUpdateView(DetailView):
+class NewDetailView(DetailView):
     model = Article
     template_name = 'news/detail_view.html'
     context_object_name = 'article'
+
+class NewDeleteView(DeleteView):
+    model = Article
+    success_url = '/news/'
+    template_name = 'news/news_delete.html'
 
 
 
